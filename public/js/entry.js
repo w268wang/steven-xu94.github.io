@@ -1,8 +1,7 @@
 require('bootstrap');
 require('scrollreveal');
-require('jquery-validation');
+require('jqueryValidation');
 
-window.$ = $;
 var initScrollReveal = function() {
     var config = {
         reset: false,
@@ -53,11 +52,16 @@ var handleSubmitFeedback = function() {
     var $form = $('form'),
         $name = $form.find('#name'),
         $email = $form.find('#email'),
-        $message = $form.find('#message');
+        $message = $form.find('#message'),
+        captcha = '';
 
     $form.on('submit', function(ev) {
         ev.preventDefault();
+        captcha = grecaptcha.getResponse();
         if (!($form.valid())) {
+            return;
+        } else if (captcha.length === 0) {
+            alert('Please verify that you are not a bot.');
             return;
         }
         $.ajax({
@@ -66,11 +70,13 @@ var handleSubmitFeedback = function() {
             data: {
                 name: $name.val(),
                 email: $email.val(),
-                message: $message.val()
+                message: $message.val(),
+                recaptcha: captcha
             },
             success: function(data) {
                 if (data.success) {
                     alert('Thanks for your message!');
+                    grecaptcha.reset();
                 }
             }
         });
@@ -91,13 +97,34 @@ var initValidation = function() {
 
 var mobileToggleCollapse = function() {
     $('.nav a').on('click', function(){
-        $(".navbar-toggle").click();
+        var $toggle = $('.navbar-toggle');
+        if ($toggle.is(':visible')) {
+            $(".navbar-toggle").click();
+        }
     });
-}
+};
+
+var initBlinkStar = function() {
+    var $blinks = $('.glyphicon-star-blink');
+    var addStar = function() {
+        setTimeout(function() {
+            $blinks.removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+            removeStar();
+        }, 1000);
+    };
+    var removeStar = function() {
+        setTimeout(function() {
+            $blinks.removeClass('glyphicon-star').addClass('glyphicon-star-empty');
+            addStar();
+        }, 1000);
+    };
+    addStar();
+};
 
 $(document).ready(function() {
     initScrollReveal();
     initSmoothScrolling();
+    initBlinkStar();
     mobileToggleCollapse();
     initGATracking();
     initValidation();

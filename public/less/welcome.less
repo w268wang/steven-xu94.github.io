@@ -102,18 +102,13 @@ hr {
 }
 
 .jumbotron {
-    background-attachment: fixed;
-    @media screen and (max-device-width: 1024px) {
-        background-attachment: scroll;
-    }
-    background-image: url('../img/background.png');
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
+    max-height: 100vh;
     margin-bottom: 0;
     padding: 0 !important;
+
+    @media (max-width: 768px) {
+        margin-top: 51px; // move carousel below nav
+    }
 
     .layer {
         background-color: black;
@@ -123,10 +118,12 @@ hr {
         left: 0;
         right: 0;
         opacity: 0.4;
+        z-index: 3;
     }
 
     .container {
-        position: relative;
+        position: absolute;
+        width: 100%;
         top: 28%;
         z-index: 4;
         text-align: center;
@@ -137,15 +134,85 @@ hr {
         }
 
         h1 {
-            padding-bottom: 20px;
-            border-bottom: 1px solid #FFFFFF;
-            border-bottom-color: rgba(255,255,255,0.35);
             display: inline-block;
+        }
+
+        .separator {
+            position: relative;
+            padding-top: 20px;
+            margin-bottom: 20px;
+            &:after {
+                content:"";
+                background: rgba(255,255,255,0.35);
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 1px;
+                width: 300px;
+            }
+
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
 
         .sub {
             font-size: 28px;
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
+    }
+
+    .carousel-inner {
+        max-height: 100vh;
+        z-index: 0;
+
+        .item {
+            height: 100vh;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center 20%;
+            @media (min-width: 768px) {
+                background-attachment: fixed;
+            }
+        }
+
+        .carousel-item-1 {
+            background-image: url('../img/beihai.png');
+        }
+
+        .carousel-item-2 {
+            background-image: url('../img/waterloomarathon1.jpg');
+        }
+
+        .carousel-item-3 {
+            background-image: url('../img/waterloomarathon2.jpg');
+        }
+
+        .carousel-item-4 {
+            background-image: url('../img/waterloohacks.jpeg');
+        }
+    }
+
+    .carousel-control {
+        z-index: 15;
+    }
+
+    .carousel-indicators li {
+        margin: 1px 5px;
+        &.active {
+            margin: 0px 5px;
+        }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
     }
 }
 
@@ -162,6 +229,18 @@ hr {
     .experiences {
         .experience {
             margin-bottom: 50px;
+        }
+
+        p.project-screenshots img {
+            margin: 3px;
+        }
+
+        .experience-details > span {
+            display: block;
+
+            i {
+                padding-right: 8px;
+            }
         }
     }
 }
@@ -220,22 +299,6 @@ hr {
     .contact {
         display: inline-block;
         margin: auto 5%;
-        @media (max-width: 992px) {
-            margin: auto 4%;
-        }
-        @media (max-width: 550px) {
-            margin: auto 3%;
-        }
-        @media (max-width: 479px) {
-            margin: auto 2%;
-        }
-        @media (max-width: 425px) {
-            margin: auto 1%;
-        }
-        @media (max-width: 384px) {
-            margin: auto;
-        }
-        
     }
 
     h2 {

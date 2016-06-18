@@ -1,0 +1,481 @@
+extends layout
+
+block navbar
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+        .container-fluid
+
+            .navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#main-nav')
+                    span.sr-only Toggle navigation
+                    // hamburger button
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='#top') Home
+
+            #main-nav.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li
+                        a(class="btn-blog", href='//blog.sxu.ca') Blog
+                    li
+                        a(class="btn-resume", href='/files/resume.pdf') Resume
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href='#profile') Profile
+                    li
+                        a(href='#experiences') Experiences
+                    li
+                        a(href='#abilities') Abilities
+                    li
+                        a(href='#interests') Interests
+                    li
+                        a(href='#contact') Contact
+
+block jumbotron
+    section#top.jumbotron.carousel.slide(data-ride='carousel', data-pause='')
+        .container
+            h1 Steven Xu
+            .separator
+            p.sub personal website
+        .layer
+
+        ol.carousel-indicators
+            li.active(data-target='#top', data-slide-to='0')
+            li(data-target='#top', data-slide-to='1')
+            li(data-target='#top', data-slide-to='2')
+            li(data-target='#top', data-slide-to='3')
+        .carousel-inner(role='listbox')
+            .item.carousel-item-1.active
+            .item.carousel-item-2
+            .item.carousel-item-3
+            .item.carousel-item-4
+        a.left.carousel-control(href='#top', role='button', data-slide='prev')
+            span.glyphicon.glyphicon-chevron-left(aria-hidden=true)
+            span.sr-only Previous
+        a.right.carousel-control(href='#top', role='button', data-slide='next')
+            span.glyphicon.glyphicon-chevron-right(aria-hidden=true)
+            span.sr-only Next
+
+block profile
+    section.background-white
+        section#profile.container(data-sr='')
+            h2 Profile
+            p.sub I'm a passionate developer.
+            hr
+            .row
+                .col-md-4
+                    h3 About me
+                    p
+                        | I am a 3B Computer Science student from University of Waterloo. I have deep passion in making beautiful products, including websites and software. I love learning new technologies, applying them and extending them. Also I like working in a team, so that I can learn faster and more.
+                .col-md-4.text-center
+                    img#me(src='dist/img/steven.png', alt='Steven Xu')
+                .col-md-4
+                    h3 Details
+                    p
+                        strong Name:
+                    p Wen (Steven) Xu
+                    p
+                        strong Age:
+                    p 21
+                    p
+                        strong Location:
+                    p Waterloo, Ontario, Canada
+
+block experiences
+    section.background-blue
+        #experiences.container
+            h2 Experiences
+            p.sub The only source of knowledge is experience.
+            hr
+            section
+                h3 Education
+                .experiences
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 University of Waterloo
+                            p.experience-period Sep 2013 - present
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Waterloo, Ontario, Canada
+                        .col-md-8
+                            p
+                                strong Candidate for Bachelor of Computer Science
+                            p
+                                | In the first two years, I learned and practiced functional, imperative and object oriented programming techniques. I learned about data structures including stack, queue, linked lists, trees and graphs. In the OOP class, I had experience with design patterns such as Singleton, Factory, Decorator, Observer etc.
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 National Institute of Technology
+                            p.experience-period Sep 2010 - Nov 2012
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Beijing, China
+                        .col-md-8
+                            p
+                                strong High school - Science
+                            p
+                                | High school is where I enjoyed doing science and math. I realized in year 11 that I wanted to become a developer, and so I started to make small C programs.
+            hr
+            section
+                h3 Careers
+                .experiences
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 WeMesh Inc.
+                            p.experience-period Jan 2016 - Apr 2015
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Kitchener, Ontario, Canada
+                        .col-md-8
+                            p
+                                strong Software Engineering, iOS
+                            p
+                                | Working at WeMesh, a startup company, is quite different from previous experiences. As a member of the iOS team, I touched every corner of the code base - from UI to new API integration, from major code refactor to localization and right-to-left support. WeMesh made me a fan of working in startup companies.
+                .experiences
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 Hootsuite Media Inc.
+                            p.experience-period May 2015 - Aug 2015
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Vancouver, British Columbia, Canada
+                        .col-md-8
+                            p
+                                strong Software Engineering, JavaScript
+                            p
+                                | I absolutely enjoyed working with the Campaigns UX team at Hootsuite. I worked with a number of cutting edge front end tools such as Webpack, Gulp, Jasmine etc, and worked on a variety of features. You can read about my contributions <a href='http://code.hootsuite.com/co-ops/steven-xu/'>here</a>.
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 Ontario Institute of Cancer Research
+                            p.experience-period Aug 2014 - Dec 2014
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Toronto, Ontario, Canada
+                        .col-md-8
+                            p
+                                strong Web Developer and Themer
+                            p
+                                | At the webdev team at OICR, I explored various technologies and developed prototypes of web apps and services. With a team member, our "WEB SSH" tool won the best CLIC day project award. I was also responsible for the technical parts of new employee training sessions. My presentation on HTML5 was considered "cool and resourceful". <a href='//blog.sxu.ca/coop/2015/01/19/web-developer-at-oicr.html'>Read more</a>
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 EnglishFirst
+                            p.experience-period May 2013 - June 2013
+                            span.experience-details
+                                span.location
+                                    i.fa.fa-lg.fa-map-marker
+                                    span Beijing, China
+                        .col-md-8
+                            p
+                                strong Teaching Assistant
+                            p
+                                | As a career starter, my primary task at EF was offering K-12 students personalized English lessons with focus on listening and writing skills, as well as assisting senior teachers in class (preparing materials, making demos, correcting homework and exam papers, etc). My communication skills and time management skills were greatly improved.
+            hr
+            section
+                h3 Projects
+                .experiences
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 On The Map
+                            p.experience-period Mar 2016
+                            span.experience-details
+                                span.github
+                                    i.fa.fa-lg.fa-github
+                                    a(href='https://github.com/stevenwenxu/On-The-Map-Udacity', target='_blank') Source Code
+                        .col-md-8
+                            p
+                                strong Swift, Parse, Facebook SDK
+                            p
+                                | Post your name, location and portfolio url, and see all other Udacity students on the map from around the world!
+                            p.project-screenshots
+                                img(src='https://raw.githubusercontent.com/stevenwenxu/On-The-Map-Udacity/master/screenshots/Login.png' alt='Login screenshot' width=250)
+                                img(src='https://raw.githubusercontent.com/stevenwenxu/On-The-Map-Udacity/master/screenshots/MapView.png' alt='MapView screenshot' width=250)
+                                img(src='https://raw.githubusercontent.com/stevenwenxu/On-The-Map-Udacity/master/screenshots/TableView.png' alt='TableView screenshot' width=250)
+                                img(src='https://raw.githubusercontent.com/stevenwenxu/On-The-Map-Udacity/master/screenshots/ShareLink.png' alt='ShareLink screenshot' width=250)
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 Meme Me
+                            p.experience-period Feb 2016
+                            span.experience-details
+                                span.github
+                                    i.fa.fa-lg.fa-github
+                                    a(href='https://github.com/stevenwenxu/Udacity-UIKit---Meme', target='_blank') Source Code
+                        .col-md-8
+                            p
+                                strong Swift
+                            p
+                                | Take a photo or choose one from gallary, and turn it into a meme picture. View your collections of memes and share with friends.
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 Pitch Perfect
+                            p.experience-period May 2015
+                            span.experience-details
+                                span.github
+                                    i.fa.fa-lg.fa-github
+                                    a(href='https://github.com/stevenwenxu/PitchPerfect-Udacity', target='_blank') Source Code
+                        .col-md-8
+                            p
+                                strong Swift, Xcode
+                            p
+                                | My first iOS App! This is a project from Udacity: Intro to iOS App Development with Swift. This is a starting point for me to step into iOS dev.
+                    .experience.row(data-sr='')
+                        .col-md-4
+                            h4 Personal Website
+                            p.experience-period Oct 2014
+                            span.experience-details
+                                span.github
+                                    i.fa.fa-lg.fa-github
+                                    a(href='https://github.com/stevenwenxu/stevenwenxu.github.io', target='_blank') Source Code
+                        .col-md-8
+                            p
+                                strong HTML5, jQuery, CSS, Bootstrap
+                            p
+                                | This website is running on Heroku with NodeJS. Some front-end packages involved: <a href="http://scrollrevealjs.org/">scrollReveal.js</a>, <a href="http://isotope.metafizzy.co/">Isotope</a>. This was a fun learning experience. The <a href="//blog.sxu.ca">Blog</a> is powered by Jekyll.
+
+block abilities
+    section.background-white
+        #abilities.container
+            h2 Abilities
+            p.sub Practice makes perfect.
+            hr
+            section
+                h3(data-sr='enter left') iOS
+                .row
+                    .col-md-6(data-sr='enter left')
+                        ul.no-bullets
+                            li
+                                span.ability-title Swift
+                                span.ability-score
+                                    +blinkStar(3)
+                            li
+                                span.ability-title Auto Layout
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title Objective C
+                                span.ability-score
+                                    +star(1)
+
+                    .col-md-6(data-sr='enter right')
+                        ul.no-bullets
+                            li
+                                span.ability-title Xcode
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title CocoaPods
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Instruments
+                                span.ability-score
+                                    +star(2)
+
+            hr
+            section
+                h3(data-sr='enter left') Web
+                .row
+                    .col-md-6(data-sr='enter left')
+                        ul.no-bullets
+                            li
+                                span.ability-title HTML / CSS / JavaScript / jQuery
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Bootstrap
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title LESS
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title Responsive Design
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title PHP / Laravel
+                                span.ability-score
+                                    +star(2)
+                            li
+                                span.ability-title Node.js / Express.js
+                                span.ability-score
+                                    +star(2)
+
+                    .col-md-6(data-sr='enter right')
+                        ul.no-bullets
+                            li
+                                span.ability-title Heroku / AWS EC2 / Digital Ocean
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Gulp
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title Webpack
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title CasperJS / Jasmine
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title Drupal
+                                span.ability-score
+                                    +star(3)
+                            li
+                                span.ability-title Google Analytics
+                                span.ability-score
+                                    +star(3)
+
+            hr
+            section
+                h3(data-sr='enter left') Tools
+                .row
+                    .col-md-6(data-sr='enter left')
+                        ul.no-bullets
+                            li
+                                span.ability-title Git
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Vagrant
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Jenkins
+                                span.ability-score
+                                    +star(3)
+                    .col-md-6(data-sr='enter right')
+                        ul.no-bullets
+                            li
+                                span.ability-title Confluence / Jira
+                                span.ability-score
+                                    +star(4)
+                            li
+                                span.ability-title Sequel Pro / phpMyAdmin
+                                span.ability-score
+                                    +star(3)
+
+            hr
+            section
+                h3(data-sr='enter left') Languages
+                .row
+                    .col-md-6(data-sr='enter left')
+                        ul.no-bullets
+                            li
+                                span.ability-title Mandarin Chinese
+                                span.ability-score
+                                    +star(5)
+                            li
+                                span.ability-title English
+                                span.ability-score
+                                    +star(5)
+                    .col-md-6(data-sr='enter right')
+                        ul.no-bullets
+                            li
+                                span.ability-title German
+                                span.ability-score
+                                    +blinkStar(2)
+
+block interests
+    section.background-blue
+        #interests.container
+            h2 Interests
+            p.sub Passion is energy.
+            hr
+            section(data-sr='enter left')
+                .row
+                    .col-md-4.left
+                        img(src='dist/img/piano.png', alt='Piano', width='220', height='220')
+                    .col-md-8.interest-content
+                        h3 Piano
+                        p
+                            | I started playing piano at the age of 6. Spending several hours on a piano is always a huge treat for me to relax. Sometimes I improvise stuff, and create my own piano accompanies for pop songs.
+            section(data-sr='enter right')
+                .row
+                    .col-md-4.right
+                        img(src='dist/img/running.png', alt='running', width='220', height='220')
+                    .col-md-8.interest-content
+                        h3 Running
+                        p
+                            | I love running and I run 10k every week. Checkout my experience in running Waterloo Half Marathon 2016!
+            section(data-sr='enter left')
+                .row
+                    .col-md-4.left
+                        img(src='dist/img/ping.png', alt='Ping Pong', width='220', height='220')
+                    .col-md-8.interest-content
+                        h3 Ping Pong
+                        p
+                            | I love to be challenged! I may be an average player but I only get better when you beat me!
+            section(data-sr='enter right')
+                .row
+                    .col-md-4.right
+                        img(src='dist/img/duolingo.png', alt='Languages', width='220', height='220')
+                    .col-md-8.interest-content
+                        h3 Languages
+                        p
+                            | I really love learning langauges. In addition to English and Mandarin, I am also able to speak some German. I've been taking a minor in German in University, and also challenging myself on Duolingo. My gut feelings for languages always suprise me - I can understant a lot of stuff without vocab support.
+
+block contact
+    section.background-gray
+        #contact.container(data-sr='')
+            h2 Contact
+            hr
+            .row.feedback-form
+                form
+                    .form-group
+                        label(for='name') Name
+                        input.form-control.required#name(type='text', required=true, name='name')
+                    .form-group
+                        label(for='email') Email (Optional)
+                        input.form-control.email#email(type='email', name='email')
+                    .form-group
+                        label(for='message') Message
+                        textarea.form-control.required#message(rows='5', required=true, name='message')
+                    .form-group
+                        label
+                        .g-recaptcha(data-sitekey="6Lee_xITAAAAADBS-9TkXI54wTKv2w7QB1nLzoB7")
+                    .form-group
+                        label
+                        input.form-control.submitFeedback(type='submit')
+            .row.text-center
+                .contact
+                    a(href='http://ca.linkedin.com/pub/steven-xu/76/263/18b/', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-linkedin.fa-stack-1x
+                .contact
+                    a(href='https://github.com/stevenwenxu', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-github.fa-stack-1x
+                .contact
+                    a(href='mailto:steven@sxu.ca', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-envelope.fa-stack-1x
+                .contact
+                    a(href='https://twitter.com/steven_xu11', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-twitter.fa-stack-1x
+                .contact
+                    a(href='https://instagram.com/__steven_xu__', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-instagram.fa-stack-1x
+                .contact
+                    a(href='http://weibo.com/u/2611917557', target='_blank')
+                        span.fa-stack.fa-2x
+                            i.fa.fa-circle-thin.fa-stack-2x
+                            i.fa.fa-weibo.fa-stack-1x
+
+block credits
+    section.background-gray
+        #credits
+            | Themed by <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, Inspired by <a href="http://onepagelove.com" target="_blank">OnePageLove</a>
